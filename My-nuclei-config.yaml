@@ -1,3 +1,7 @@
+# 参考文档
+# https://docs.projectdiscovery.io/tools/nuclei/running#nuclei-config
+# https://github.com/projectdiscovery/nuclei/issues/472
+
 # 所有 HTTP 请求中要包含的标头
 # header:
 #   - 'X-BugBounty-Hacker: h1/geekboy'
@@ -52,6 +56,16 @@ rate-limit: 500
 bulk-size: 50
 concurrency: 50
 
+# Nuclei CLI flags
+# no-meta: false
+# json: false
+# include-rr: false
+silent: true
+disable-update-check: true
+no-interactsh: true
+# update-templates: false
+# update-directory: $HOME/
+# retries: 1
+# timeout: 10
 
-# no-interactsh: yes
-# disable-update-check
+
