@@ -63,6 +63,7 @@ concurrency: 50
 silent: true
 disable-update-check: true
 no-interactsh: true
+stats: true
 # update-templates: false
 # update-directory: $HOME/
 # retries: 1
