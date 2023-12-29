@@ -1,0 +1,57 @@
+# 所有 HTTP 请求中要包含的标头
+# header:
+#   - 'X-BugBounty-Hacker: h1/geekboy'
+
+# 基于目录的模板执行
+# templates:
+#   - cves/
+#   - vulnerabilities/
+#   - misconfiguration/
+
+# 基于标签的模板执行
+# tags: exposures,cve
+
+# 模板过滤器
+# tags: exposures,cve
+# author: geeknik,pikpikcu,dhiyaneshdk
+# severity: critical,high,medium
+
+# 模板允许列表
+include-tags: fuzz # Tag based inclusion (allows overwriting nuclei-ignore list)
+# include-templates: # Template based inclusion (allows overwriting nuclei-ignore list)
+#   - vulnerabilities/xxx
+#   - misconfiguration/xxxx
+
+# 模板拒绝列表
+exclude-tags: xss,ssh,dos,osint,c2,malware,bokbot,trojan # Tag based exclusion
+exclude-templates: # Template based exclusion
+  - dns\nameserver-fingerprint.yaml
+  - http\miscellaneous\external-service-interaction.yaml
+  - http\miscellaneous\google-floc-disabled.yaml
+  - http\miscellaneous\old-copyright.yaml
+  - http\miscellaneous\rdap-whois.yaml
+  - http\misconfiguration\http-missing-security-headers.yaml
+  - http\misconfiguration\httponly-cookie-detect.yaml
+  - http\technologies\spring-detect.yaml
+  - http\technologies\tech-detect.yaml
+  - http\vulnerabilities\generic\request-based-interaction.yaml
+  - javascript\detection\ssh-auth-methods.yaml
+  - javascript\enumeration\ssh-cbc-mode-ciphers.yaml
+  - javascript\enumeration\ssh-diffie-hellman-logjam.yaml
+  - javascript\enumeration\ssh-password-auth.yaml
+  - javascript\enumeration\ssh-server-enumeration.yaml
+  - javascript\enumeration\ssh-sha1-hmac-algo.yaml
+  - javascript\enumeration\ssh-weak-algo-supported.yaml
+  - javascript\enumeration\ssh-weak-mac-algo.yaml
+  - javascript\enumeration\ssh-weakkey-exchange-algo.yaml
+  - ssl\deprecated-tls.yaml
+  - ssl\tls-version.yaml
+  
+# 速率限制配置
+rate-limit: 500
+bulk-size: 50
+concurrency: 50
+
+
+# no-interactsh: yes
+# disable-update-check
