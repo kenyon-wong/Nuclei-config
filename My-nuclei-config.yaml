@@ -2,6 +2,8 @@
 # https://docs.projectdiscovery.io/tools/nuclei/running#nuclei-config
 # https://github.com/projectdiscovery/nuclei/issues/472
 
+proxy: http://127.0.0.1:8080
+
 # 所有 HTTP 请求中要包含的标头
 # header:
 #   - 'X-BugBounty-Hacker: h1/geekboy'
@@ -21,14 +23,76 @@
 # severity: critical,high,medium
 
 # 模板允许列表
-include-tags: fuzz # Tag based inclusion (allows overwriting nuclei-ignore list)
-# include-templates: # Template based inclusion (allows overwriting nuclei-ignore list)
-#   - vulnerabilities/xxx
-#   - misconfiguration/xxxx
+include-tags: 
+  - fuzz
+  - devops
+  - cloud
+  - default-login
+include-templates: # Template based inclusion (allows overwriting nuclei-ignore list)
+  - dns/spf-record-detect.yaml
+  - http/default-logins/
+  - network/default-login/
+  - javascript/default-logins/
+  - ssl/ssl-dns-names.yaml
+  - dns/dns-waf-detect.yaml
+  - http/technologies/waf-detect.yaml
+  - http/technologies/springboot-actuator.yaml
+  - http/misconfiguration/springboot/springboot-heapdump.yaml
+  - http/misconfiguration/jolokia/jolokia-list.yaml
+  - http/misconfiguration/springboot/spring-eureka.yaml
+  - http/technologies/nacos-version.yaml
+  - http/cves/2021/CVE-2021-29441.yaml
+  - http/cves/2021/CVE-2021-29442.yaml
+  - http/misconfiguration/nacos-authentication-bypass.yaml
+  - http/misconfiguration/unauthenticated-nacos-access.yaml
+  - http/exposures/apis/swagger-api.yaml
+  - http/exposures/configs/git-config.yaml
+  - http/misconfiguration/druid-monitor.yaml
+  - http/technologies/shiro-detect.yaml
+  - http/cves/2021/CVE-2021-31805.yaml
+  - http/technologies/weblogic-detect.yaml
+  - http/cves/2014/CVE-2014-4210.yaml
+  - http/cves/2017/CVE-2017-10271.yaml
+  - http/cves/2017/CVE-2017-3506.yaml
+  - http/cves/2018/CVE-2018-2894.yaml
+  - http/cves/2019/CVE-2019-2725.yaml
+  - http/cves/2019/CVE-2019-2729.yaml
+  - http/cves/2020/CVE-2020-14750.yaml
+  - http/cves/2020/CVE-2020-14882.yaml
+  - http/cves/2020/CVE-2020-14883.yaml
+  - http/cves/2020/CVE-2020-2551.yaml
+  - http/cves/2020/CVE-2020-2733.yaml
+  - http/cves/2022/CVE-2022-21371.yaml
+  - http/default-logins/weblogic/weblogic-weak-login.yaml
+  - http/exposed-panels/weblogic-uddiexplorer.yaml
+  - network/cves/2018/CVE-2018-2628.yaml
+  - network/cves/2018/CVE-2018-2893.yaml
+  - network/detection/weblogic-iiop-detect.yaml
+  - network/detection/weblogic-t3-detect.yaml
+  - network/exposed-zookeeper.yaml
+  - network/detection/samba-detect.yaml
+  - network/detection/rdp-detect.yaml
+  - http/exposures/backups/zip-backup-files.yaml
 
 # 模板拒绝列表
-exclude-tags: xss,ssh,dos,osint,c2,malware,bokbot,trojan # Tag based exclusion
+exclude-tags: 
+  - xss
+  - ssh
+  - dos
+  - osint
+  - c2
+  - malware
+  - bokbot
+  - trojan 
+  - creds-stuffing
+  - token-spray
+  - local
+  - wordpress
+  - dvwa
 exclude-templates: # Template based exclusion
+  - config
+  - file
+  - profiles
   - dns\caa-fingerprint.yaml
   - dns\nameserver-fingerprint.yaml
   - http\miscellaneous\external-service-interaction.yaml
@@ -69,8 +133,17 @@ rate-limit: 500
 # json: false
 # no-meta: false
 # update-directory: $HOME/
-# update-templates: false
+update-templates: false
 disable-update-check: true
 no-interactsh: true
 silent: true
 stats: true
+
+cloud-upload: false
+
+no-max-host-error: true
+
+timeout: 5
+
+markdown-export: markdown-export
+report-db: report-db
