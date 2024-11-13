@@ -2,7 +2,7 @@
 # https://docs.projectdiscovery.io/tools/nuclei/running#nuclei-config
 # https://github.com/projectdiscovery/nuclei/issues/472
 
-proxy: http://127.0.0.1:8080
+#proxy: http://127.0.0.1:8080
 
 # 所有 HTTP 请求中要包含的标头
 # header:
@@ -93,33 +93,37 @@ exclude-templates: # Template based exclusion
   - config
   - file
   - profiles
-  - dns\caa-fingerprint.yaml
-  - dns\nameserver-fingerprint.yaml
-  - http\miscellaneous\external-service-interaction.yaml
-  - http\miscellaneous\google-floc-disabled.yaml
-  - http\miscellaneous\old-copyright.yaml
-  - http\miscellaneous\rdap-whois.yaml
-  - http\misconfiguration\http-missing-security-headers.yaml
-  - http\misconfiguration\httponly-cookie-detect.yaml
-  - http\technologies\spring-detect.yaml
-  - http\technologies\tech-detect.yaml
-  - http\vulnerabilities\generic\request-based-interaction.yaml
-  - javascript\detection\ssh-auth-methods.yaml
-  - javascript\enumeration\ssh-cbc-mode-ciphers.yaml
-  - javascript\enumeration\ssh-diffie-hellman-logjam.yaml
-  - javascript\enumeration\ssh-password-auth.yaml
-  - javascript\enumeration\ssh-server-enumeration.yaml
-  - javascript\enumeration\ssh-sha1-hmac-algo.yaml
-  - javascript\enumeration\ssh-weak-algo-supported.yaml
-  - javascript\enumeration\ssh-weak-mac-algo.yaml
-  - javascript\enumeration\ssh-weakkey-exchange-algo.yaml
-  - ssl\deprecated-tls.yaml
-  - ssl\detect-ssl-issuer.yaml
-  - ssl\tls-version.yaml
+  - dns/caa-fingerprint.yaml
+  - dns/nameserver-fingerprint.yaml
+  - http/miscellaneous/external-service-interaction.yaml
+  - http/miscellaneous/google-floc-disabled.yaml
+  - http/miscellaneous/old-copyright.yaml
+  - http/miscellaneous/rdap-whois.yaml
+  - http/misconfiguration/http-missing-security-headers.yaml
+  - http/misconfiguration/http-missing-security-headers.yaml
+  - http/misconfiguration/httponly-cookie-detect.yaml
+  - http/technologies/spring-detect.yaml
+  - http/technologies/tech-detect.yaml
+  - http/vulnerabilities/generic/request-based-interaction.yaml
+  - javascript/detection/ssh-auth-methods.yaml
+  - javascript/enumeration/ssh-cbc-mode-ciphers.yaml
+  - javascript/enumeration/ssh-diffie-hellman-logjam.yaml
+  - javascript/enumeration/ssh-password-auth.yaml
+  - javascript/enumeration/ssh-server-enumeration.yaml
+  - javascript/enumeration/ssh-sha1-hmac-algo.yaml
+  - javascript/enumeration/ssh-weak-algo-supported.yaml
+  - javascript/enumeration/ssh-weak-mac-algo.yaml
+  - javascript/enumeration/ssh-weakkey-exchange-algo.yaml
+  - ssl/deprecated-tls.yaml
+  - ssl/detect-ssl-issuer.yaml
+  - ssl/tls-version.yaml
   
 # 速率限制配置
+## 每个模板最大并行检测数（默认：25）
 bulk-size: 50
+## 并行执行的最大模板数量（默认：25）
 concurrency: 50
+## 每秒最大请求量（默认：150）
 rate-limit: 500
 
 # Gihub actions config
@@ -155,3 +159,9 @@ timeout: 5
 
 markdown-export: markdown-export
 report-db: report-db
+
+# UNCOVER引擎:
+# uncover: false 
+# uncover-query: 'app=nacos'
+# uncover-engine: fofa
+# uncover-limit: 10000 
