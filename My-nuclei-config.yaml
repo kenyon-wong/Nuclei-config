@@ -134,11 +134,19 @@ rate-limit: 500
 # no-meta: false
 # update-directory: $HOME/
 update-templates: false
+
+# 禁用nuclei程序与模板更新
 disable-update-check: true
+
+# 禁用反连检测平台，同时排除基于反连检测的模板
+## 反连检测的误报率相对较高，并且内网环境下不适用，可按需启用
 no-interactsh: true
 silent: true
+
+# 显示扫描进度统计情况
 stats: true
 
+# 关闭云上传
 cloud-upload: false
 
 no-max-host-error: true
