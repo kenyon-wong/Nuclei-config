@@ -96,7 +96,3 @@ cloud-upload: false          # 禁用云上传
 ## 🤝 贡献
 
 欢迎提交 Issue 或 Pull Request 来改进配置文件。
-
-## 📃 许可证
-
-MIT License
