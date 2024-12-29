@@ -1,12 +1,72 @@
 # 参考文档
 # https://docs.projectdiscovery.io/tools/nuclei/running#nuclei-config
 # https://github.com/projectdiscovery/nuclei/issues/472
+# https://docs.projectdiscovery.io/tools/nuclei/authenticated-scans#static-authentication
 
-#proxy: http://127.0.0.1:8080
+# 连接控制
+## 设置代理
+proxy: 'http://127.0.0.1:8080'
+## 超时
+timeout: 5
+no-max-host-error: true
 
 # 所有 HTTP 请求中要包含的标头
+## 便于运营识别是内外部扫描流量
 # header:
-#   - 'X-BugBounty-Hacker: h1/geekboy'
+#   - 'HackerBy: h1/geekboy'
+
+# 认证文件
+## 包含 nuclei 认证扫描密钥的配置文件路径
+secret-file: 'Secret.yaml'
+## 预先从密钥文件中获取密钥
+prefetch-secrets: true
+
+# 速率限制配置
+## 每个模板可并行分析的最大主机数（默认 25）
+bulk-size: 50
+## 并行执行的最大模板数量（默认：25）
+concurrency: 50
+## 每秒最大请求量（默认：150）
+rate-limit: 500
+
+# 更新控制
+## 更新模板
+update-templates: false
+## 禁用 nuclei 程序与模板更新
+disable-update-check: true
+
+# 反连平台控制
+## 禁用反连检测平台，同时排除基于反连检测的模板
+## 反连检测的误报率相对较高，并且内网环境下不适用，可按需启用
+no-interactsh: true
+
+# pd 云平台控制
+## 关闭云上传
+cloud-upload: false
+
+# 终端显示控制
+## 关闭终端输出
+silent: true
+## 显示扫描进度统计情况
+stats: true
+
+# export
+markdown-export: markdown-export
+report-db: report-db
+
+# UNCOVER引擎:
+# uncover: false
+# uncover-query: 'app=nacos'
+# uncover-engine: fofa
+# uncover-limit: 10000
+
+# 扫描模板控制
+## 特定场合下，可以通过指定模板目录，来指定扫描模板
+# templates: 'D:\\My-nuclei-Templates'
+# include-rr: false
+# json: false
+# no-meta: false
+# update-directory: $HOME/
 
 # 基于目录的模板执行
 # templates:
@@ -117,51 +177,3 @@ exclude-templates: # Template based exclusion
   - ssl/deprecated-tls.yaml
   - ssl/detect-ssl-issuer.yaml
   - ssl/tls-version.yaml
-  
-# 速率限制配置
-## 每个模板最大并行检测数（默认：25）
-bulk-size: 50
-## 并行执行的最大模板数量（默认：25）
-concurrency: 50
-## 每秒最大请求量（默认：150）
-rate-limit: 500
-
-# Gihub actions config
-# concurrency: 150
-# rate-limit: 2000
-# retries: 1
-# timeout: 2
-
-# Nuclei CLI flags
-# include-rr: false
-# json: false
-# no-meta: false
-# update-directory: $HOME/
-update-templates: false
-
-# 禁用nuclei程序与模板更新
-disable-update-check: true
-
-# 禁用反连检测平台，同时排除基于反连检测的模板
-## 反连检测的误报率相对较高，并且内网环境下不适用，可按需启用
-no-interactsh: true
-silent: true
-
-# 显示扫描进度统计情况
-stats: true
-
-# 关闭云上传
-cloud-upload: false
-
-no-max-host-error: true
-
-timeout: 5
-
-markdown-export: markdown-export
-report-db: report-db
-
-# UNCOVER引擎:
-# uncover: false 
-# uncover-query: 'app=nacos'
-# uncover-engine: fofa
-# uncover-limit: 10000 
