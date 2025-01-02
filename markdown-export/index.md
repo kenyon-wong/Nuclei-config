@@ -1,0 +1,2 @@
+| Hostname/IP | Finding | Severity |
+| --- | --- | --- |
