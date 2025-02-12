@@ -4,8 +4,18 @@
 
 ## ⚡️ 快速开始
 
+> [!note]
+> targets.txt 也可以直接在配置文件中进行定义
+
+
 ```bash
 nuclei -config My-nuclei-config.yaml -l targets.txt
+```
+
+如果需要为数据包添加鉴权，可以参照 Secret.yaml 文件格式定义目标的认证字段之后，按照如下示例命令进行
+
+```bash
+nuclei -config My-nuclei-config.yaml -l targets.txt -ps -sf Secret.yaml
 ```
 
 ## 🔨 主要配置项
