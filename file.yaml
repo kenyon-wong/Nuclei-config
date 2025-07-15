@@ -1,0 +1,95 @@
+bulk-size: 50
+concurrency: 50
+rate-limit: 500
+
+cloud-upload: false
+disable-update-check: true
+no-interactsh: true
+update-templates: false
+
+silent: true
+stats: true
+
+markdown-export: markdown-export
+report-db: report-db
+
+file: true
+
+exclude-type:
+  - dns
+  - http
+  - headless
+  - tcp
+  - workflow
+  - ssl
+  - websocket
+  - whois
+  - code
+  - javascript
+
+templates:
+  # - file/android/adb-backup-enabled.yaml
+  # - file/android/android-minsdk-21.yaml
+  # - file/android/android-user-certificates-trust.yaml
+  # - file/android/biometric-detect.yaml
+  # - file/android/certificate-validation.yaml
+  # - file/android/content-scheme.yaml
+  # - file/android/debug-enabled.yaml
+  # - file/android/deep-link-detect.yaml
+  # - file/android/dynamic-broadcast-receiver.yaml
+  # - file/android/file-scheme.yaml
+  # - file/android/google-storage-bucket.yaml
+  # - file/android/provider-path.yaml
+  # - file/android/webview-addjavascript-interface.yaml
+  # - file/android/webview-javascript.yaml
+  # - file/android/webview-load-url.yaml
+  # - file/android/webview-universal-access.yaml
+  - file/keys/alibaba/alibaba-key-id.yaml
+  - file/keys/alibaba/alibaba-secret-id.yaml
+  - file/keys/atlassian/atlassian-api-token.yaml
+  - file/keys/azure/azure-connection-string.yaml
+  - file/keys/branch-key.yaml
+  - file/keys/confluent/confluent-access-token.yaml
+  - file/keys/confluent/confluent-secret-token.yaml
+  - file/keys/contentful-api-token.yaml
+  - file/keys/datadog-access-token.yaml
+  - file/keys/dependency/dependency-track.yaml
+  - file/keys/docker/dockerhub-pat.yaml
+  - file/keys/etsy-access-token.yaml
+  - file/keys/fcm-api-key.yaml
+  - file/keys/figma-access-token.yaml
+  - file/keys/flickr-access-token.yaml
+  - file/keys/flutter/flutterwave-encryption-key.yaml
+  - file/keys/flutter/flutterwave-public-key.yaml
+  - file/keys/flutter/flutterwave-secret-key.yaml
+  - file/keys/gcp-service-account.yaml
+  - file/keys/github/github-app-token.yaml
+  - file/keys/github/github-oauth-token.yaml
+  - file/keys/github/github-outdated-key.yaml
+  - file/keys/github/github-personal-token.yaml
+  - file/keys/github/github-refresh-token.yaml
+  - file/keys/gitlab/gitlab-personal-accesstoken.yaml
+  - file/keys/gitlab/gitlab-pipeline-triggertoken.yaml
+  - file/keys/gitlab/gitlab-runner-regtoken.yaml
+  - file/keys/gocardless-api-token.yaml
+  - file/keys/google/google-api.yaml
+  - file/keys/google/google-clientid.yaml
+  - file/keys/google/google-oauth-clientsecret.yaml
+  - file/keys/grafana/grafana-api-key.yaml
+  - file/keys/grafana/grafana-cloud-api-token.yaml
+  - file/keys/grafana/grafana-service-account-token.yaml
+  - file/keys/huggingface/huggingface-user-access.yaml
+  - file/keys/jenkins-token.yaml
+  - file/keys/kubernetes/kubernetes-dockercfg-secret.yaml
+  - file/keys/kubernetes/kubernetes-dockerconfigjson-secret.yaml
+  - file/keys/npm-accesstoken.yaml
+  - file/keys/nuget-key.yaml
+  - file/keys/openai-key.yaml
+  - file/keys/postman-api-key.yaml
+  - file/keys/private-key.yaml
+  - file/keys/pypi-token.yaml
+  - file/keys/rubygems-key.yaml
+  - file/keys/s3-bucket.yaml
+  - file/keys/segment-public-api.yaml
+  - file/keys/twitter/twitter-client.yaml
+  - file/keys/twitter/twitter-secret.yaml
