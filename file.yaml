@@ -1,3 +1,7 @@
+# nuclei -file -disable-update-check -t test.yaml -target {{path}} -stats
+
+# target: your_path
+
 bulk-size: 50
 concurrency: 50
 rate-limit: 500
@@ -55,10 +59,8 @@ templates:
   - file/keys/datadog-access-token.yaml
   - file/keys/dependency/dependency-track.yaml
   - file/keys/docker/dockerhub-pat.yaml
-  - file/keys/etsy-access-token.yaml
   - file/keys/fcm-api-key.yaml
   - file/keys/figma-access-token.yaml
-  - file/keys/flickr-access-token.yaml
   - file/keys/flutter/flutterwave-encryption-key.yaml
   - file/keys/flutter/flutterwave-public-key.yaml
   - file/keys/flutter/flutterwave-secret-key.yaml
@@ -71,7 +73,6 @@ templates:
   - file/keys/gitlab/gitlab-personal-accesstoken.yaml
   - file/keys/gitlab/gitlab-pipeline-triggertoken.yaml
   - file/keys/gitlab/gitlab-runner-regtoken.yaml
-  - file/keys/gocardless-api-token.yaml
   - file/keys/google/google-api.yaml
   - file/keys/google/google-clientid.yaml
   - file/keys/google/google-oauth-clientsecret.yaml
@@ -91,5 +92,5 @@ templates:
   - file/keys/rubygems-key.yaml
   - file/keys/s3-bucket.yaml
   - file/keys/segment-public-api.yaml
-  - file/keys/twitter/twitter-client.yaml
-  - file/keys/twitter/twitter-secret.yaml
+  # - file/keys/twitter/twitter-client.yaml
+  # - file/keys/twitter/twitter-secret.yaml
