@@ -5,7 +5,7 @@
 
 # 连接控制
 ## 设置代理
-proxy: 'http://127.0.0.1:8080'
+# proxy: 'http://127.0.0.1:8080'
 ## 超时
 timeout: 5
 no-max-host-error: true
@@ -17,9 +17,9 @@ no-max-host-error: true
 
 # 认证文件
 ## 包含 nuclei 认证扫描密钥的配置文件路径
-secret-file: 'Secret.yaml'
+# secret-file: 'Secret.yaml'
 ## 预先从密钥文件中获取密钥
-prefetch-secrets: true
+# prefetch-secrets: true
 
 # 速率限制配置
 ## 每个模板可并行分析的最大主机数（默认 25）
