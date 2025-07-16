@@ -16,6 +16,7 @@ stats: true
 
 markdown-export: markdown-export
 report-db: report-db
+output: result.txt
 
 file: true
 
